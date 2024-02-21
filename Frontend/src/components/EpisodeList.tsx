@@ -1,7 +1,23 @@
-// src/components/EpisodeList.tsx
-
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
+
+interface Character {
+  id: string;
+}
+
+interface Episode {
+  id: string;
+  name: string;
+  episode: string;
+  air_date: string;
+  characters: Character[];
+}
+
+interface EpisodesQueryResult {
+  episodes: {
+    results: Episode[];
+  };
+}
 
 const EPISODES_QUERY = gql`
   query {
@@ -20,7 +36,7 @@ const EPISODES_QUERY = gql`
 `;
 
 const EpisodeList: React.FC = () => {
-  const { loading, error, data } = useQuery(EPISODES_QUERY);
+  const { loading, error, data } = useQuery<EpisodesQueryResult>(EPISODES_QUERY);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -29,7 +45,7 @@ const EpisodeList: React.FC = () => {
     <div>
       <h2>Episodes</h2>
       <ul>
-        {data.episodes.results.map((episode: any) => (
+        {data?.episodes.results.map((episode: Episode) => ( // Corrigindo a tipagem de episode
           <li key={episode.id}>
             <span>Episode: {episode.episode}</span>
             <span>Name: {episode.name}</span>
