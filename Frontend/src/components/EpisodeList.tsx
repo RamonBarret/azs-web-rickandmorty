@@ -42,27 +42,29 @@ const EpisodeList: React.FC = () => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <div className='main'>
-      <div className='body'>
-        <div className='img-logo'>
-            <img src="../assets/logo.png" alt="" />
-        </div>
-        <h2>Episodes</h2>
+    <div className='body'>
+      <div className='main'>
+        <header>
+            <img src="" alt="Logo_rick-morty" />
+            <h1>Episodes</h1>
+        </header>
         <div className='container'>
-            <ul>
-                {data?.episodes.results.map((episode: Episode) => ( 
-                <div key={episode.id} className='card'> 
-                    <li>
-                        <span>Episode: {episode.episode}</span>
-                        <span>Name: {episode.name}</span>
-                        <span>Air Date: {episode.air_date}</span>
-                        <span>Characters: {episode.characters.length}</span>
-                    </li>
-                    <button>Episode Details</button>
-                </div>
-                
-                ))}
-            </ul>
+            <div>
+                <ul>
+                    {data?.episodes.results.map((episode: Episode) => ( 
+                    <div key={episode.id} className='card'> 
+                        <img src="" alt="espisode-img-generic" />
+                        <li>
+                            <span>Episode: {episode.episode}</span>
+                            <span>Name: {episode.name}</span>
+                            <span>Air Date: {episode.air_date}</span>
+                            <span>Characters: {episode.characters.length}</span>
+                        </li>
+                        <button>Episode Details</button>
+                    </div>
+                    ))}
+                </ul>
+            </div>
         </div>
         
       </div>
