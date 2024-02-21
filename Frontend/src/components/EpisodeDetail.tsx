@@ -3,7 +3,26 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
 interface EpisodeParams {
+    id: string;
+    [key: string]: string;
+}
+
+interface EpisodeData {
+  episode: {
+    id: string;
+    name: string;
+    episode: string;
+    air_date: string;
+    characters: Character[];
+  };
+}
+
+interface Character {
   id: string;
+  name: string;
+  image: string;
+  species: string;
+  status: string;
 }
 
 const EPISODE_QUERY = gql`
@@ -26,12 +45,12 @@ const EPISODE_QUERY = gql`
 
 const EpisodeDetail: React.FC = () => {
   const { id } = useParams<EpisodeParams>();
-  const { loading, error, data } = useQuery(EPISODE_QUERY, {
+  const { loading, error, data } = useQuery<EpisodeData>(EPISODE_QUERY, {
     variables: { id },
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (error || !data) return <p>Error :(</p>; // Verifica se há erro ou se data é undefined
 
   const episode = data.episode;
 
@@ -43,7 +62,7 @@ const EpisodeDetail: React.FC = () => {
       <p>Air Date: {episode.air_date}</p>
       <h3>Characters</h3>
       <ul>
-        {episode.characters.map((character: any) => (
+        {episode.characters.map((character: Character) => (
           <li key={character.id}>
             <img src={character.image} alt={character.name} />
             <p>Name: {character.name}</p>
@@ -57,4 +76,3 @@ const EpisodeDetail: React.FC = () => {
 };
 
 export default EpisodeDetail;
-
