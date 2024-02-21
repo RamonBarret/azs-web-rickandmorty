@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* EpisodeList.css */
+
+.main {
+  background-image: url('../assets/bg.jpg'); 
+  background-position: top center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #591F35;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  background-color: #ffffff; 
+  width: 400px;
+  margin-bottom: 5px;
+  padding: 20px; 
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilos para o cabeçalho "Episodes" */
+h2 {
+  margin-bottom: 20px;
+  margin-left: 50%;
+  color: #ffffff; 
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Estilos para cada episódio na lista */
+ul {
+  list-style-type: none; 
+  padding: 0;
+}
+
+span {
+  display: block; 
+}
+
