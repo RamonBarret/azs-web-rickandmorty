@@ -45,9 +45,15 @@ const EpisodeList: React.FC = () => {
     <div className='body'>
       <div className='main'>
         <header>
-            <img src="" alt="Logo_rick-morty" />
             <h1>Episodes</h1>
         </header>
+        <div className='input-container'>
+          <input
+              type='text'
+              placeholder='Enter the episode name'
+          />
+        </div>
+        
         <div className='container'>
             <div>
                 <ul>
@@ -66,7 +72,6 @@ const EpisodeList: React.FC = () => {
                 </ul>
             </div>
         </div>
-        
       </div>
     </div>
   );
