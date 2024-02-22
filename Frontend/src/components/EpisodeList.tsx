@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 interface Character {
@@ -37,9 +37,19 @@ const EPISODES_QUERY = gql`
 
 const EpisodeList: React.FC = () => {
   const { loading, error, data } = useQuery<EpisodesQueryResult>(EPISODES_QUERY);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
+
+  // Filtrar os episódios com base no termo de pesquisa
+  const filteredEpisodes = data?.episodes.results.filter(
+    (episode: Episode) =>
+      episode.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Determinar a lista de episódios a serem renderizados
+  const episodesToRender = searchTerm ? filteredEpisodes : data?.episodes.results;
 
   return (
     <div className='body'>
@@ -50,14 +60,16 @@ const EpisodeList: React.FC = () => {
         <div className='input-container'>
           <input
               type='text'
-              placeholder='Enter the episode name'
+              placeholder='Enter the episode name to search'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         
         <div className='container'>
             <div>
                 <ul>
-                    {data?.episodes.results.map((episode: Episode) => ( 
+                    {episodesToRender?.map((episode: Episode) => ( 
                     <div key={episode.id} className='card'> 
                         <img src="" alt="espisode-img-generic" />
                         <li>
