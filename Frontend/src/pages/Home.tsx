@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Navbar from '../components/Navbar';
+import { CgSearch } from "react-icons/cg";
 
 interface Character {
   id: string;
@@ -38,6 +40,7 @@ const EPISODES_QUERY = gql`
 const EpisodeList: React.FC = () => {
   const { loading, error, data } = useQuery<EpisodesQueryResult>(EPISODES_QUERY);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searched, setSearched] = useState<boolean>(false);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -49,21 +52,28 @@ const EpisodeList: React.FC = () => {
   );
 
   // Determinar a lista de episódios a serem renderizados
-  const episodesToRender = searchTerm ? filteredEpisodes : data?.episodes.results;
+  const episodesToRender = searched ? filteredEpisodes : data?.episodes.results;
+
+  // Função para lidar com a submissão do formulário de pesquisa
+  const handleSearchSubmit = () => {
+    setSearched(true);
+  };
 
   return (
     <div className='body'>
       <div className='main'>
-        <header>
-            <h1>Episodes</h1>
-        </header>
+        
+        <Navbar />
         <div className='input-container'>
           <input
-              type='text'
-              placeholder='Enter the episode name to search'
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+            type='text'
+            placeholder='Enter the episode name to search'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button type='submit' onClick={handleSearchSubmit}>
+            <CgSearch />
+          </button>
         </div>
         
         <div className='container'>

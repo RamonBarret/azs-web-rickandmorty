@@ -1,6 +1,5 @@
-@charset "UTF-8";
-
 * {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,30 +21,36 @@
   margin: auto;
 }
 
-header {
+/* Estilos para o cabeçalho "Episodes" */
+nav {
   background-color: #591F35;
-  padding-left: 20px;
-  padding-bottom: 1px;
-
+  padding: 1rem 2rem;
   display: flex;
-  flex-direction: row;
   align-items: center;
+}
+nav h1 {
+  margin-left: 30px;
+  color: #ffffff; 
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .input-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: .5rem;
 }
 .input-container input{
   width: 500px;
   height: 50px;
+  padding: .2rem .8rem;
   margin-top: 5px;
   border-radius: 5px;
   border: 2px solid #2C5164;
 }
-.input-container input::placeholder{
-  padding: 10px;
+.input-container input ::placeholder{
+  padding: .2rem .8rem;
 }
 
 .container {
@@ -81,13 +86,7 @@ span:first-child{
   color: #591F35;
 }
 
-/* Estilos para o cabeçalho "Episodes" */
-h1 {
-  margin: 10px;
-  color: #ffffff; 
-  font-size: 30px;
-  font-weight: bold;
-}
+
 
 /* Estilos para cada episódio na lista */
 ul {

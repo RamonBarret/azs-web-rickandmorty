@@ -1,8 +1,8 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import EpisodeList from './components/EpisodeList';
-import EpisodeDetail from './components/EpisodeDetail';
+import Home from './pages/Home';
+import EpisodeDetail from './pages/EpisodeDetail';
 
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={<EpisodeList />} />
+          <Route path="/" element={<Home />} />
           <Route path="/episode/:id" element={<EpisodeDetail />} />
         </Routes>
       </Router>
