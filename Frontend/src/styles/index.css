@@ -45,35 +45,62 @@ nav h1 {
   width: 500px;
   height: 50px;
   padding: .2rem .8rem;
-  margin-top: 5px;
+  margin-top: 10px;
   border-radius: 5px;
   border: 2px solid #2C5164;
 }
 .input-container input ::placeholder{
   padding: .2rem .8rem;
 }
+.input-container button {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 13px;
+  border: 2px solid #2C5164;
+  border-radius: 10px;
+  background-color: #591F35;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.input-container button:hover {
+  background-color: #2C5164;
+}
 
 .container {
   display: flex;
+  flex-wrap: nowrap;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cards-container {
+  display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
 }
 .card {
-  background-color: #ffffff; 
-  text-align: justify;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
   border: 3px solid #2C5164;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 30%;
 }
 .card > img {
-  width: 100px;
-}
-span:first-child{
-  margin-top: 10px;
+  display: block;
+  margin: auto; /* Alteração aqui */
+  width: 250px;
+  border: 3px solid #545759;
+  border-radius: 10px;
 }
 .card button {
   padding: 5px;
@@ -87,15 +114,32 @@ span:first-child{
 }
 
 
-
 /* Estilos para cada episódio na lista */
-ul {
-  list-style-type: none; 
+.episode-info {
+  margin-top: 10px;
+}
+.episode-info span {
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 5px; 
 }
 
-span {
-  display: block;
-  margin-bottom: 5px; 
+
+/* Mensagem de busca não encontrada */
+.container_noResultsMessage {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  color: white;
+  padding: 10px;
+  background-color: black;
+  height: 100px;
+  width: 100%; 
+}
+.container_noResultsMessage p {
+  margin-bottom: 5px;
 }
 
 @media (max-width:760px) {

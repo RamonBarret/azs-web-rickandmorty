@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Navbar from '../components/Navbar';
 import { CgSearch } from "react-icons/cg";
+import { MdOutlineFilterAltOff } from "react-icons/md";
 
 interface Character {
   id: string;
@@ -37,7 +38,7 @@ const EPISODES_QUERY = gql`
   }
 `;
 
-const EpisodeList: React.FC = () => {
+const Home: React.FC = () => {
   const { loading, error, data } = useQuery<EpisodesQueryResult>(EPISODES_QUERY);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searched, setSearched] = useState<boolean>(false);
@@ -45,24 +46,27 @@ const EpisodeList: React.FC = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  // Filtrar os episódios com base no termo de pesquisa
   const filteredEpisodes = data?.episodes.results.filter(
     (episode: Episode) =>
       episode.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Determinar a lista de episódios a serem renderizados
-  const episodesToRender = searched ? filteredEpisodes : data?.episodes.results;
+  const episodesToRender = searched ? (filteredEpisodes || []) : data?.episodes.results;
 
-  // Função para lidar com a submissão do formulário de pesquisa
+  const noResultsMessage = searchTerm && filteredEpisodes && filteredEpisodes.length === 0 ? "No episodes found..." : "";
+
   const handleSearchSubmit = () => {
     setSearched(true);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setSearched(false);
   };
 
   return (
     <div className='body'>
       <div className='main'>
-        
         <Navbar />
         <div className='input-container'>
           <input
@@ -74,29 +78,31 @@ const EpisodeList: React.FC = () => {
           <button type='submit' onClick={handleSearchSubmit}>
             <CgSearch />
           </button>
+          <button onClick={handleClearSearch}>
+            <MdOutlineFilterAltOff />
+          </button>
         </div>
-        
+
         <div className='container'>
-            <div>
-                <ul>
-                    {episodesToRender?.map((episode: Episode) => ( 
-                    <div key={episode.id} className='card'> 
-                        <img src="" alt="espisode-img-generic" />
-                        <li>
-                            <span>Episode: {episode.episode}</span>
-                            <span>Name: {episode.name}</span>
-                            <span>Air Date: {episode.air_date}</span>
-                            <span>Characters: {episode.characters.length}</span>
-                        </li>
-                        <button>Episode Details</button>
-                    </div>
-                    ))}
-                </ul>
-            </div>
+          <div className="cards-container">
+            {episodesToRender?.map((episode: Episode) => ( 
+              <div key={episode.id} className='card'>
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSWmeSlzWqi86Dtepy3lIvJs1TcZCHTIhLqH9GlD_Om6qp2wwrG" alt="episode-img-generic" />
+                <div className="episode-info">
+                  <span>Episode: {episode.episode}</span>
+                  <span>Name: {episode.name}</span>
+                  <span>Air Date: {episode.air_date}</span>
+                  <span>Characters: {episode.characters.length}</span>
+                </div>
+                <button>Episode Details</button>
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
     </div>
   );
 };
 
-export default EpisodeList;
+export default Home;
