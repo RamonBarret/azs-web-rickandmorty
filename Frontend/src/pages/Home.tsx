@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { Link } from 'react-router-dom'; // Importe o componente Link
 import Navbar from '../components/Navbar';
 import { CgSearch } from "react-icons/cg";
 import { MdOutlineFilterAltOff } from "react-icons/md";
@@ -53,8 +54,6 @@ const Home: React.FC = () => {
 
   const episodesToRender = searched ? (filteredEpisodes || []) : data?.episodes.results;
 
-  const noResultsMessage = searchTerm && filteredEpisodes && filteredEpisodes.length === 0 ? "No episodes found..." : "";
-
   const handleSearchSubmit = () => {
     setSearched(true);
   };
@@ -66,8 +65,8 @@ const Home: React.FC = () => {
 
   return (
     <div className='body'>
+      <Navbar />
       <div className='main'>
-        <Navbar />
         <div className='input-container'>
           <input
             type='text'
@@ -84,17 +83,28 @@ const Home: React.FC = () => {
         </div>
 
         <div className='container'>
+          {(episodesToRender ?? []).length === 0 && searched && (
+              <div className="container_noResultsMessage">
+                <h2>Episode not found...</h2>
+                <p>Click the clear filter button and search again!</p>
+                <img src="https://w0.peakpx.com/wallpaper/653/714/HD-wallpaper-rick-morty-x-breaking-bad.jpg" alt="" />
+              </div>
+          )}
           <div className="cards-container">
             {episodesToRender?.map((episode: Episode) => ( 
               <div key={episode.id} className='card'>
                 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSWmeSlzWqi86Dtepy3lIvJs1TcZCHTIhLqH9GlD_Om6qp2wwrG" alt="episode-img-generic" />
                 <div className="episode-info">
-                  <span>Episode: {episode.episode}</span>
-                  <span>Name: {episode.name}</span>
-                  <span>Air Date: {episode.air_date}</span>
-                  <span>Characters: {episode.characters.length}</span>
+                  <span><strong>Episode:</strong> {episode.episode}</span>
+                  <span><strong>Name:</strong> {episode.name}</span>
+                  <span><strong>Air Date:</strong> {episode.air_date}</span>
+                  <span><strong>Characters:</strong> {episode.characters.length}</span>
                 </div>
-                <button>Episode Details</button>
+                <div className='container-button'>
+                  <Link to={`/episode/${episode.id}`}>
+                    <button className='epDetails'>Episode Details</button>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
