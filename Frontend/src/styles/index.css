@@ -24,15 +24,24 @@
 /* Estilos para o cabeçalho "Episodes" */
 nav {
   background-color: #591F35;
-  padding: 1rem 2rem;
+  padding: 10px;
   display: flex;
   align-items: center;
 }
+@font-face {
+  font-family: 'Rick-and-Morty';
+  src: url('../font/get_schwifty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 nav h1 {
+  font-family: 'Rick-and-Morty';
   margin-left: 30px;
   color: #ffffff; 
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 2.3rem;
+}
+nav img {
+  width: 180px;
 }
 
 .input-container {
