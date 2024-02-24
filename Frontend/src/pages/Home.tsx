@@ -77,7 +77,7 @@ const Home: React.FC = () => {
           <button type='submit' onClick={handleSearchSubmit}>
             <CgSearch />
           </button>
-          <button onClick={handleClearSearch}>
+          <button onClick={handleClearSearch} style={{ display: searched ? 'inline-block' : 'none' }}>
             <MdOutlineFilterAltOff />
           </button>
         </div>
