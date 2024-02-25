@@ -38,7 +38,7 @@ nav {
 
 
 nav img {
-  width: 180px;
+  width: 160px;
 }
 
 .input-container {
@@ -161,7 +161,7 @@ nav img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   text-align: center;
   padding: 10px;
   background-color: white;
@@ -170,7 +170,8 @@ nav img {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .container_noResultsMessage h2 {
-  font-size: 1.5rem;
+  font-family: 'Rick-and-Morty';;
+  font-size: 2.2rem;
   padding: 10px;
   color: #0D0D0D;
 }
@@ -188,6 +189,7 @@ nav img {
   } 
 }
 
+/* Botão voltar da página Episode Detail */
 .redoToHome {
   background: none;
   border: none;
@@ -197,4 +199,70 @@ nav img {
 }
 .redoToHome:hover {
   color: gray;
+}
+
+/* página Episode Detail */
+.container_epDetail {
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.container_epInformation {
+  padding: 20px;
+}
+
+.characters {
+  background-color: #A6929F;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.characters .container-characters-tittle  {
+  display: flex;
+  justify-content: center;
+}
+
+.characters .container-characters-tittle h3 {
+  font-family: 'Rick-and-Morty';
+  font-size: 2.5rem;
+}
+.container-characters {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  
+
+}
+.card-characters {
+  border: 3px solid #2C5164;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: .8rem;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 350px;
+}
+.card-characters > img {
+  display: block;
+  margin: auto; 
+  width: 90%;
+  border: 3px solid #545759;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.characters-info {
+  margin-top: 15px;
+}
+.characters-info span {
+  display: block;
+  margin-bottom: 5px; 
+  padding: 5px;
+  border: 2px solid #545759;
+  border-radius: 5px;
+  background-color: #D7D7D9;
 }

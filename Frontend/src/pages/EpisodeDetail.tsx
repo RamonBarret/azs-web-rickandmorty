@@ -59,29 +59,36 @@ const EpisodeDetail: React.FC = () => {
     <div className='body'>
       <Navbar showRedoToHomeButton={true}/>
       <div className='main'>
-      <div className='container-currentPage'>
-          <h1>Episode details</h1>
+        <div className='container-currentPage'>
+            <h1>Episode details</h1>
         </div>
-        <div>
-          <h2>Episode Detail</h2>
-          <p>Episode: {episode.episode}</p>
-          <p>Name: {episode.name}</p>
-          <p>Air Date: {episode.air_date}</p>
-          <h3>Characters</h3>
-          <ul>
+        <div className='container_epDetail'>
+        <div className='container_epInformation'>
+          <h2>Name: {episode.name}</h2>
+          <p><strong>Episode:</strong> {episode.episode}</p>
+          <p><strong>Air Date:</strong> {episode.air_date}</p>
+        </div>
+        <div className='characters'>
+          <div className='container-characters-tittle'>
+              <h3>characters</h3>
+          </div>
+          <div className='container-characters'>
             {episode.characters.map((character: Character) => (
-              <li key={character.id}>
+              <div key={character.id} className='card-characters' >
                 <img src={character.image} alt={character.name} />
-                <p>Name: {character.name}</p>
-                <p>Species: {character.species}</p>
-                <p>Status: {character.status}</p>
-              </li>
+                  <div className='characters-info'>
+                    <span><strong>Name:</strong> {character.name}</span>
+                    <span><strong>Species:</strong> {character.species}</span>
+                    <span><strong>Status:</strong> {character.status}</span>
+                  </div>
+              </div>
             ))}
-          </ul>
+          </div>
+              
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
-    
+    </div> 
   );
 };
 
