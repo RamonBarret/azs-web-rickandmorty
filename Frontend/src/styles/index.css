@@ -4,6 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+  font-family: 'Rick-and-Morty';
+  src: url('../font/get_schwifty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* EpisodeList.css */
 
@@ -26,20 +32,11 @@ nav {
   background-color: #591F35;
   padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-@font-face {
-  font-family: 'Rick-and-Morty';
-  src: url('../font/get_schwifty.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-nav h1 {
-  font-family: 'Rick-and-Morty';
-  margin-left: 30px;
-  color: #ffffff; 
-  font-size: 2.3rem;
-}
+
+
 nav img {
   width: 180px;
 }
@@ -49,6 +46,17 @@ nav img {
   justify-content: center;
   align-items: center;
   gap: .5rem;
+}
+.container-currentPage {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.container-currentPage h1 {
+  font-family: 'Rick-and-Morty';
+  margin-right: 50px;
+  color: #0D0D0D; 
+  font-size: 2.5rem;
 }
 .input-container input{
   width: 500px;
@@ -94,7 +102,7 @@ nav img {
 .card {
   border: 3px solid #2C5164;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -102,14 +110,15 @@ nav img {
   padding: 1rem;
   margin-left: 10px;
   margin-bottom: 10px;
-  width: 30%;
+  width: 350px;
 }
 .card > img {
   display: block;
   margin: auto; 
-  width: 250px;
+  width: 90%;
   border: 3px solid #545759;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
 .card .container-button {
@@ -124,9 +133,11 @@ nav img {
   background-color: #591F35;
   color: #5BC3BC;
   margin-top: 10px;
-  font-weight: bold;
-  font-size: 1rem;
+  font-family: 'Rick-and-Morty';
+  font-size: 1.5rem;
+  font-weight: 500;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }.card button:hover {
   background-color: #5BC3BC;
   color: #591F35;
@@ -135,7 +146,7 @@ nav img {
 
 /* Estilos para cada episódio na lista */
 .episode-info {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .episode-info span {
   display: block;
@@ -161,7 +172,7 @@ nav img {
 .container_noResultsMessage h2 {
   font-size: 1.5rem;
   padding: 10px;
-  color: black;
+  color: #0D0D0D;
 }
 .container_noResultsMessage img {
   width: 450px;
@@ -175,4 +186,15 @@ nav img {
   .card {
       width: 100%;
   } 
+}
+
+.redoToHome {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  color: white;
+}
+.redoToHome:hover {
+  color: gray;
 }

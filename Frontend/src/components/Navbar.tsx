@@ -1,10 +1,19 @@
 import React from 'react';
+import { IoArrowRedoCircleOutline } from "react-icons/io5";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  showRedoToHomeButton: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ showRedoToHomeButton }) => {
   return (
     <nav>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1280px-Rick_and_Morty.svg.png" alt="logo" />
-      <h1>Episodes</h1>
+      {showRedoToHomeButton && (
+        <button className='redoToHome'>
+          <IoArrowRedoCircleOutline />
+        </button>
+      )}
     </nav>
   );
 };

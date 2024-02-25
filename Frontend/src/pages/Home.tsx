@@ -65,8 +65,11 @@ const Home: React.FC = () => {
 
   return (
     <div className='body'>
-      <Navbar />
+      <Navbar showRedoToHomeButton={false}/>
       <div className='main'>
+        <div className='container-currentPage'>
+          <h1>Episodes</h1>
+        </div>
         <div className='input-container'>
           <input
             type='text'

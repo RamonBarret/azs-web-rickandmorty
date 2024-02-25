@@ -57,8 +57,11 @@ const EpisodeDetail: React.FC = () => {
 
   return (
     <div className='body'>
-      <Navbar />
+      <Navbar showRedoToHomeButton={true}/>
       <div className='main'>
+      <div className='container-currentPage'>
+          <h1>Episode details</h1>
+        </div>
         <div>
           <h2>Episode Detail</h2>
           <p>Episode: {episode.episode}</p>
