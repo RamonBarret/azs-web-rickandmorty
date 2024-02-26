@@ -62,9 +62,8 @@ const EpisodeDetail: React.FC = () => {
         <div className='container-currentPage'>
             <h1>Episode details</h1>
         </div>
-        <div className='container_epDetail'>
         <div className='container_epInformation'>
-          <h2>Name: {episode.name}</h2>
+          <p><strong>Name:</strong> {episode.name}</p>
           <p><strong>Episode:</strong> {episode.episode}</p>
           <p><strong>Air Date:</strong> {episode.air_date}</p>
         </div>
@@ -82,9 +81,7 @@ const EpisodeDetail: React.FC = () => {
                     <span><strong>Status:</strong> {character.status}</span>
                   </div>
               </div>
-            ))}
-          </div>
-              
+              ))}
           </div>
         </div>
       </div>

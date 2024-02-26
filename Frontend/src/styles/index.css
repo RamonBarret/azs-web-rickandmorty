@@ -16,6 +16,8 @@
 .main {
   width: 90%;
   margin: auto;
+  background-color: #E6CCCF;
+  border-radius: 20px;
 }
 
 .body {
@@ -35,8 +37,6 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
-
 nav img {
   width: 160px;
 }
@@ -50,7 +50,10 @@ nav img {
 .container-currentPage {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 10px;
+  margin-bottom: -20px;
+  padding: 20px;
 }
 .container-currentPage h1 {
   font-family: 'Rick-and-Morty';
@@ -102,7 +105,7 @@ nav img {
 .card {
   border: 3px solid #2C5164;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -161,13 +164,18 @@ nav img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   text-align: center;
   padding: 10px;
   background-color: white;
   border-radius: 10px;
   border: 5px solid #591F35;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+
+  position: relative;
+  top: 165px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .container_noResultsMessage h2 {
   font-family: 'Rick-and-Morty';;
@@ -176,7 +184,7 @@ nav img {
   color: #0D0D0D;
 }
 .container_noResultsMessage img {
-  width: 450px;
+  width: 50%;
   height: auto;
   border: 3px solid #2C5164;
   border-radius: 10px;
@@ -196,30 +204,41 @@ nav img {
   cursor: pointer;
   font-size: 3rem;
   color: white;
+  margin-right: 10px;
 }
 .redoToHome:hover {
-  color: gray;
+  color: #E6CCCF;
 }
 
 /* página Episode Detail */
-.container_epDetail {
-  background-color: #ffffff;
-  border-radius: 20px;
-}
-
 .container_epInformation {
+  padding: 50px;
+  background-color: #826665;
+  margin: 20px;
+  border-radius: 20px;
+  border: 1px solid #13120E;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+}
+.container_epInformation p {
+  margin-bottom: 10px;
+  background-color: #ffffff;
   padding: 20px;
+  border-radius: 5px;
+  border: 3px solid #E6CCCF;
 }
 
 .characters {
-  background-color: #A6929F;
+  background-color: #826665;
   margin: 20px;
   padding: 20px;
   border-radius: 20px;
+  border: 1px solid #13120E;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
 }
 .characters .container-characters-tittle  {
   display: flex;
   justify-content: center;
+  margin: 10px;
 }
 
 .characters .container-characters-tittle h3 {
@@ -231,11 +250,9 @@ nav img {
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
-  
-
 }
 .card-characters {
-  border: 3px solid #2C5164;
+  border: 4px solid #E6CCCF;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
   background-color: #ffffff;
@@ -251,8 +268,8 @@ nav img {
   display: block;
   margin: auto; 
   width: 90%;
-  border: 3px solid #545759;
-  border-radius: 50%;
+  border: 3px solid #826665;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .characters-info {
@@ -262,7 +279,25 @@ nav img {
   display: block;
   margin-bottom: 5px; 
   padding: 5px;
-  border: 2px solid #545759;
+  border: 2px solid #826665;
   border-radius: 5px;
-  background-color: #D7D7D9;
+  background-color: #E6CCCF;
+}
+
+.container-button-favorite { 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5%;
+}
+.container-button-favorite button { 
+  border: none;
+  background: none;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.container-button-favorite button:hover { 
+  background-color: #ffffff;
 }

@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Link } from 'react-router-dom'; // Importe o componente Link
 import Navbar from '../components/Navbar';
+import FavoriteFilter from './FavoriteFilter'; // Importe o novo componente FavoriteFilter
+
 import { CgSearch } from "react-icons/cg";
-import { MdOutlineFilterAltOff } from "react-icons/md";
+import { MdOutlineFilterAltOff, MdFavoriteBorder, MdFavorite } from "react-icons/md";
+
 
 interface Character {
   id: string;
@@ -44,6 +47,11 @@ const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searched, setSearched] = useState<boolean>(false);
 
+  // Definindo um novo estado para armazenar os episódios favoritos
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [showFavorites, setShowFavorites] = useState<boolean>(false);
+
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
@@ -51,8 +59,6 @@ const Home: React.FC = () => {
     (episode: Episode) =>
       episode.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  const episodesToRender = searched ? (filteredEpisodes || []) : data?.episodes.results;
 
   const handleSearchSubmit = () => {
     setSearched(true);
@@ -63,12 +69,29 @@ const Home: React.FC = () => {
     setSearched(false);
   };
 
+  // Definindo uma função para alternar entre favoritar e desfavoritar um episódio
+  const toggleFavorite = (id: string) => {
+    if (favorites.includes(id)) {
+      setFavorites(favorites.filter(favId => favId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
+
+  // Atualização da lógica de filtragem para incluir apenas os episódios favoritados
+  const filteredFavorites = showFavorites ? data?.episodes.results.filter(
+    episode => favorites.includes(episode.id)
+  ) : [];
+  
+  const episodesToRender = searched ? (filteredEpisodes || []) : (showFavorites ? (filteredFavorites || []) : (data?.episodes.results || []));
+
   return (
     <div className='body'>
       <Navbar showRedoToHomeButton={false}/>
       <div className='main'>
         <div className='container-currentPage'>
           <h1>Episodes</h1>
+          <FavoriteFilter setShowFavorites={setShowFavorites} showFavorites={showFavorites} />
         </div>
         <div className='input-container'>
           <input
@@ -96,6 +119,11 @@ const Home: React.FC = () => {
           <div className="cards-container">
             {episodesToRender?.map((episode: Episode) => ( 
               <div key={episode.id} className='card'>
+                <div className='container-button-favorite'>
+                  <button onClick={() => toggleFavorite(episode.id)}>
+                      {favorites.includes(episode.id) ? <MdFavorite /> : <MdFavoriteBorder />}
+                  </button>
+                </div>
                 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSWmeSlzWqi86Dtepy3lIvJs1TcZCHTIhLqH9GlD_Om6qp2wwrG" alt="episode-img-generic" />
                 <div className="episode-info">
                   <span><strong>Episode:</strong> {episode.episode}</span>

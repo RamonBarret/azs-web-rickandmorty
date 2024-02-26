@@ -17,6 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ showRedoToHomeButton }) => {
           </button>
         </Link>
       )}
+
     </nav>
   );
 };
