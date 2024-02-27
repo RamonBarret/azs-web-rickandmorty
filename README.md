@@ -1,5 +1,5 @@
-<p align="center" width='200px'>
-  <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1280px-Rick_and_Morty.svg.png">
+<p align="center">
+  <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/280px-Rick_and_Morty.svg.png">
 </p>
 
 # Desafio AZShip
@@ -18,12 +18,12 @@ Teste para desenvolvimento front-end na enContact.
 
 ### Preview da página Home da aplicação - Episódios 
 <p align="center">
-  <img alt="filter_all" src="./Frontend/.github/home-preview.PNG">
+  <img alt="home-preview" src="./Frontend/.github/home-preview.PNG">
 </p>
 
 ### Preview página de Detalhes do Episódio
 <p align="center">
-  <img alt="filter_all" src="./Frontend/.github/episode_detail-preview.PNG">
+  <img alt="episode_detail-preview" src="./Frontend/.github/episode_detail-preview.PNG">
 </p>
 
 ## Tecnologias 🛠
