@@ -4,7 +4,19 @@
 
 # Desafio AZShip
 
-Teste para desenvolvimento front-end na enContact.
+<p>Seu desafio é criar uma aplicação Web em ReactJS para gerenciar todos os episódios de Rick
+and Morty.</p> 
+
+## Requisitos
+- [x] Listar todos os episódios e exibir os seus dados
+- [x] Detalhar o episódio, nessa tela deve mostrar as características do episodio e as informações sobre cada personagem do episódio com os seus dados
+- [x] Funcionalidade de Favoritar e Desfavoritar um episódio
+- [x] Funcionalidade de Marcar um episódio como Visto
+- [x] Funcionalidade de Listar episódios favoritos
+- [x] Buscar episódio pelo nome 
+- [x] Responsividade da aplicação
+
+
 
 ## Desenvolvedor 👨🏽‍💻
 
