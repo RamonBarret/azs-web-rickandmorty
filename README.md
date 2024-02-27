@@ -4,7 +4,7 @@
 
 # Desafio AZShip
 
-<p>Seu desafio é criar uma aplicação Web em ReactJS para gerenciar todos os episódios de Rick
+<p>Criar uma aplicação Web em ReactJS para gerenciar todos os episódios de Rick
 and Morty.</p> 
 
 ## Requisitos
@@ -16,18 +16,6 @@ and Morty.</p>
 - [x] Buscar episódio pelo nome 
 - [x] Responsividade da aplicação
 
-
-
-## Desenvolvedor 👨🏽‍💻
-
-- <a target="_blank" href="https://www.linkedin.com/in/ramon-barreto-medrado/">Ramon Barreto</a>
-
-## Utilizei o Vite para criar a aplicação React 
-> Passos para rodar a aplicação:
-- [x] Direcione o caminho do seu terminal até a pasta principal do projeto: <strong>Frontend</strong>
-- [x] Instale as dependências com o comando <strong>'npm install'</strong>
-- [x] Na pasta <strong>Frontend</strong> digite o comando <strong>'npm run dev'</strong> para dar o start na aplicação (renderizar)
-
 ### Preview da página Home da aplicação - Episódios 
 <p align="center">
   <img alt="home-preview" src="./Frontend/.github/home-preview.PNG">
@@ -38,8 +26,18 @@ and Morty.</p>
   <img alt="episode_detail-preview" src="./Frontend/.github/episode_detail-preview.PNG">
 </p>
 
+## Utilizei o Vite para criar a aplicação React 
+> Passos para rodar a aplicação:
+- [x] Direcione o caminho do seu terminal até a pasta principal do projeto: <strong>Frontend</strong>
+- [x] Instale as dependências com o comando <strong>'npm install'</strong>
+- [x] Na pasta <strong>Frontend</strong> digite o comando <strong>'npm run dev'</strong> para dar o start na aplicação (renderizar)
+
 ## Tecnologias 🛠
-- React
+- React JS
+
+## Desenvolvedor 👨🏽‍💻
+
+- <a target="_blank" href="https://www.linkedin.com/in/ramon-barreto-medrado/">Ramon Barreto</a>
 
 ## Meu Contato 📲
 
