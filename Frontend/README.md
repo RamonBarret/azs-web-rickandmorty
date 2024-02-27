@@ -1,4 +1,8 @@
-# Teste front-end enContact
+<p align="center" width='200px'>
+  <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1280px-Rick_and_Morty.svg.png">
+</p>
+
+# Desafio AZShip
 
 Teste para desenvolvimento front-end na enContact.
 
@@ -12,44 +16,15 @@ Teste para desenvolvimento front-end na enContact.
 - [x] Instale as dependências com o comando <strong>'npm install'</strong>
 - [x] Na pasta <strong>Frontend</strong> digite o comando <strong>'npm run dev'</strong> para dar o start na aplicação (renderizar)
 
-  
-### Preview inicial da aplicação 📖 
+### Preview da página Home da aplicação - Episódios 
 <p align="center">
-  <img alt="filter_all" src="./Frontend/data/initial-preview.PNG">
+  <img alt="filter_all" src="../Frontend/.github/home-preview.PNG">
 </p>
 
-### Preview da tela com as tarefas criadas 📄✏
-
-#### Filtro 'All' por dafault (padrão)
-> Trazendo todas as tarefas criadas 📝
+### Preview página de Detalhes do Episódio
 <p align="center">
-  <img alt="filter_all" src="./Frontend/data/filter_all.PNG">
+  <img alt="filter_all" src="../Frontend/.github/episode_detail-preview.PNG">
 </p>
-<br>
-
-#### Selecionando o Filtro 'Active'
-> Para trazer as tarefas que foram criadas, mas que ainda não foram concluídas/checadas 📝⏳
-<p align="center">
-  <img alt="filter_active" src="./Frontend/data/filter_active.PNG">
-</p>
-<br>
-
-#### Selecionando o Filtro 'Completed'
-> Para trazer as tarefas que já foram concluídas/checadas 📝✔
-<p align="center">
-  <img alt="filter_completed" src="./Frontend/data/filter_completed.PNG">
-</p>
-<br>
-
-### Recuperando as tarefas iniciais via GET da URL através do Console 📨
-<p align="center">
-  <img alt="call_api-console" src="./Frontend/data/call_api.PNG">
-</p>
-
-
-## Testes 🧪
-> Apenas instalei o Jest, irei continuar codando para implementar o teste de cada componente criado. (Testes em desnvolvimento 🏗)
-
 
 ## Tecnologias 🛠
 - React
@@ -57,7 +32,3 @@ Teste para desenvolvimento front-end na enContact.
 ## Meu Contato 📲
 
 - Email: ramon_barreto_medrado@hotmail.com
-
-<br>
-<hr>
-<br>
