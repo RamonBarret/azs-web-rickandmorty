@@ -18,12 +18,12 @@ Teste para desenvolvimento front-end na enContact.
 
 ### Preview da página Home da aplicação - Episódios 
 <p align="center">
-  <img alt="filter_all" src="../Frontend/.github/home-preview.PNG">
+  <img alt="filter_all" src="./Frontend/.github/home-preview.PNG">
 </p>
 
 ### Preview página de Detalhes do Episódio
 <p align="center">
-  <img alt="filter_all" src="../Frontend/.github/episode_detail-preview.PNG">
+  <img alt="filter_all" src="./Frontend/.github/episode_detail-preview.PNG">
 </p>
 
 ## Tecnologias 🛠
