@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 interface EpisodeParams {
     id: string;
@@ -50,7 +51,13 @@ const EpisodeDetail: React.FC = () => {
     variables: { id },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (
+    <div className='loading-container'>
+      <div className='loading-card'>
+        <p>Loading...</p>
+      </div>
+    </div>
+  );
   if (error || !data) return <p>Error :(</p>; // Verifica se há erro ou se data é undefined
 
   const episode = data.episode;
@@ -85,6 +92,7 @@ const EpisodeDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div> 
   );
 };

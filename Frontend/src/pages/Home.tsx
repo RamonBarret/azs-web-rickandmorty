@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import { Link } from 'react-router-dom'; // Importe o componente Link
+import { Link } from 'react-router-dom'; 
 import Navbar from '../components/Navbar';
-import FavoriteFilter from './FavoriteFilter'; // Importe o novo componente FavoriteFilter
+import FavoriteFilter from './FavoriteFilter';
+import Footer from '../components/Footer';
 
 import { CgSearch } from "react-icons/cg";
 import { MdOutlineFilterAltOff, MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
+
 
 
 interface Character {
@@ -47,12 +50,18 @@ const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [searched, setSearched] = useState<boolean>(false);
 
-  // Definindo um novo estado para armazenar os episódios favoritos
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showFavorites, setShowFavorites] = useState<boolean>(false);
 
+  const [viewedEpisodes, setViewedEpisodes] = useState<string[]>([]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return (
+    <div className='loading-container'>
+      <div className='loading-card'>
+        <p>Loading...</p>
+      </div>
+    </div>
+  );
   if (error) return <p>Error :(</p>;
 
   const filteredEpisodes = data?.episodes.results.filter(
@@ -75,6 +84,15 @@ const Home: React.FC = () => {
       setFavorites(favorites.filter(favId => favId !== id));
     } else {
       setFavorites([...favorites, id]);
+    }
+  };
+
+  // Função para marcar um episódio como visto
+  const toggleViewed = (id: string) => {
+    if (viewedEpisodes.includes(id)) {
+      setViewedEpisodes(viewedEpisodes.filter(episodeId => episodeId !== id));
+    } else {
+      setViewedEpisodes([...viewedEpisodes, id]);
     }
   };
 
@@ -118,8 +136,14 @@ const Home: React.FC = () => {
           )}
           <div className="cards-container">
             {episodesToRender?.map((episode: Episode) => ( 
-              <div key={episode.id} className='card'>
-                <div className='container-button-favorite'>
+              <div className={`card ${viewedEpisodes.includes(episode.id) ? 'viewed' : ''}`}>
+                <div className='container-button-actions'>
+                  <button onClick={() => toggleViewed(episode.id)}>
+                    <div className='container-button-epViewed'>
+                      {viewedEpisodes.includes(episode.id) ? <GrCheckboxSelected /> : <GrCheckbox />}
+                      <p>Episode Viewed</p>
+                    </div>
+                  </button>
                   <button onClick={() => toggleFavorite(episode.id)}>
                       {favorites.includes(episode.id) ? <MdFavorite /> : <MdFavoriteBorder />}
                   </button>
@@ -140,8 +164,8 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };
