@@ -30,7 +30,7 @@
   height: 100%;
 }
 
-/* Estilos para o cabeçalho "Episodes" */
+/* Navbar global */
 nav {
   background-color: #591F35;
   padding: 10px;
@@ -42,12 +42,7 @@ nav img {
   width: 160px;
 }
 
-.input-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: .5rem;
-}
+/* Título da página atual */
 .container-currentPage {
   display: flex;
   justify-content: center;
@@ -62,6 +57,15 @@ nav img {
   color: #0D0D0D; 
   font-size: 2.5rem;
 }
+
+/* Elemento de Input para buscar epsisódios pelo nome */
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
 .input-container input{
   width: 500px;
   height: 50px;
@@ -73,6 +77,7 @@ nav img {
 .input-container input ::placeholder{
   padding: .2rem .8rem;
 }
+/* Botões do Elemento de Input para buscar epsisódios pelo nome */
 .input-container button {
   display: flex;
   align-items: center;
@@ -90,6 +95,7 @@ nav img {
   background-color: #2C5164;
 }
 
+/* Página Home - configuração do container e card */
 .container {
   display: flex;
   flex-wrap: nowrap;
@@ -125,7 +131,7 @@ nav img {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
-
+/* Página Home - configuração do botão 'Episode Detail' do card */
 .card .container-button {
   display: flex;
   align-items: center;
@@ -147,9 +153,7 @@ nav img {
   background-color: #5BC3BC;
   color: #591F35;
 }
-
-
-/* Estilos para cada episódio na lista */
+/* Página Home - Estilos para os dados do episódio no card */
 .episode-info {
   margin-top: 15px;
 }
@@ -161,10 +165,77 @@ nav img {
   border-radius: 5px;
   background-color: #CCDEFA;
 }
+/* Media Query para o card */
+@media (max-width:760px) {
+  .card {
+      width: 100%;
+  } 
+}
 
+/* Página Home - Estilos para os botões da parte superior do card ('Episode Viewed' e 'Coração')*/
+.container-button-actions { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-button-actions button:first-child p { 
+  font-family: 'Rick-and-Morty';
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.container-button-actions button:first-child { 
+  font-size: 1.5rem;
+}
+.container-button-actions button { 
+  border: none;
+  background: none;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.container-button-actions button:hover { 
+  background-color: transparent;
+}
 
+/* Definindo opacidade ao dar o flag no botão 'Episode Viewed' e configuração do botão*/
+.card.viewed {
+  opacity: 0.5;
+} 
+.container-button-epViewed {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.container-button-epViewed p {
+  margin-left: 10px;
+}
 
-/* Mensagem de busca não encontrada */
+/* Configuração do botão 'List of Favorite Episodes'*/
+.episodes-button-FavoriteList {
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.episodes-button-FavoriteList:hover {
+  background-color: #5BC3BC;
+  color: #591F35;
+}
+.container-button-epFavoriteList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+} 
+.container-button-epFavoriteList p {
+  font-family: 'Rick-and-Morty';
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+/* Mensagem de busca não encontrada - para o filtro de 'listar episódios' e 'input de texto' */
 .container_noResultsMessage {
   display: flex;
   flex-direction: column;
@@ -178,13 +249,13 @@ nav img {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 
   position: relative;
-  top: 165px;
+  top: 170px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .container_noResultsMessage h2 {
   font-family: 'Rick-and-Morty';;
-  font-size: 2.2rem;
+  font-size: 2rem;
   padding: 10px;
   color: #0D0D0D;
 }
@@ -194,12 +265,6 @@ nav img {
   border: 3px solid #2C5164;
   border-radius: 10px;
   margin: 10px;
-}
-
-@media (max-width:760px) {
-  .card {
-      width: 100%;
-  } 
 }
 
 /* Botão voltar da página Episode Detail */
@@ -232,6 +297,7 @@ nav img {
   border: 3px solid #E6CCCF;
 }
 
+/* Página Episode Detail - configuração do container e card */
 .characters {
   background-color: #826665;
   margin: 0 20px 0 20px;
@@ -245,7 +311,6 @@ nav img {
   justify-content: center;
   margin: 10px;
 }
-
 .characters .container-characters-tittle h3 {
   font-family: 'Rick-and-Morty';
   font-size: 2.5rem;
@@ -277,6 +342,8 @@ nav img {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+/* Página Episode Detail - Estilos para os dados do personagem no card */
 .characters-info {
   margin-top: 15px;
 }
@@ -289,77 +356,7 @@ nav img {
   background-color: #E6CCCF;
 }
 
-.container-button-actions { 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.container-button-actions button:first-child p { 
-  font-family: 'Rick-and-Morty';
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-.container-button-actions button:first-child { 
-  font-size: 1.5rem;
-}
-.container-button-actions button { 
-  border: none;
-  background: none;
-  font-size: 2rem;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-}
-.container-button-actions button:hover { 
-  background-color: transparent;
-}
-
-.card.viewed {
-  opacity: 0.5;
-} 
-
-.container-button-epViewed {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row;
-}
-.container-button-epViewed p {
-  margin-left: 10px;
-}
-
-.episodes-button-FavoriteList {
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-}
-.episodes-button-FavoriteList:hover {
-  background-color: #5BC3BC;
-  color: #591F35;
-}
-.container-button-epFavoriteList {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row;
-  
-} 
-.container-button-epFavoriteList p {
-  font-family: 'Rick-and-Morty';
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-left: 10px;
-}
-
-footer {
-  background-color: #AB8F8E;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
+/* Configuração do elemento de 'Loading'*/
 .loading-container {
   display: flex;
   justify-content: center;
@@ -375,9 +372,32 @@ footer {
   width: 100%;
   height: 100%;
 }
-
 .loading-card p{
   font-family: 'Rick-and-Morty';
-  font-size: 5rem;
-  font-weight: 600;
+  font-size: 6rem;
+}
+
+/* Footer global */
+footer {
+  font-family: 'Rick-and-orty';
+  background-color: #2C5164;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+}
+footer p{
+  font-family: 'Rick-and-Morty';
+  font-size: 1.5rem;
+  background-color: #2C5164;
+  margin-right: 10px;
+}
+.footer a {
+  color: #5BC3BC;
+  font-family: 'Rick-and-Morty';
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #ffffff;
 }

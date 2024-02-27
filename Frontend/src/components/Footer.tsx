@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const Footer: React.FC = () => {
   return (
-    <footer>
-      <p>Site desenvolvido por Ramon Barreto Medrado</p>
+    <footer className="footer">
+      <p>Created by ©<a href="https://www.linkedin.com/in/ramon-barreto-medrado/">  Ramon</a></p>
     </footer>
   );
 };

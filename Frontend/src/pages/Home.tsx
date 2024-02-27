@@ -127,13 +127,20 @@ const Home: React.FC = () => {
         </div>
 
         <div className='container'>
-          {(episodesToRender ?? []).length === 0 && searched && (
-              <div className="container_noResultsMessage">
-                <h2>Episode not found...</h2>
-                <p>Click the clear filter button and search again!</p>
-                <img src="https://w0.peakpx.com/wallpaper/653/714/HD-wallpaper-rick-morty-x-breaking-bad.jpg" alt="" />
-              </div>
-          )}
+        {showFavorites && filteredFavorites && filteredFavorites.length === 0 && (
+          <div className="container_noResultsMessage">
+            <h2>There are no favorite episodes selected yet</h2>
+            <img src="https://w0.peakpx.com/wallpaper/653/714/HD-wallpaper-rick-morty-x-breaking-bad.jpg" alt="exception-default" />
+          </div>
+        )}
+
+        {!showFavorites && searched && filteredEpisodes && filteredEpisodes.length === 0 && (
+          <div className="container_noResultsMessage">
+            <h2>Episode not found... </h2>
+            <p></p>
+            <img src="https://w0.peakpx.com/wallpaper/653/714/HD-wallpaper-rick-morty-x-breaking-bad.jpg" alt="exception-default" />
+          </div>
+        )}
           <div className="cards-container">
             {episodesToRender?.map((episode: Episode) => ( 
               <div className={`card ${viewedEpisodes.includes(episode.id) ? 'viewed' : ''}`}>
