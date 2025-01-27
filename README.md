@@ -34,7 +34,7 @@ and Morty.</p>
 
 ## Tecnologias 🛠
 - React
-- JavaScript
+- TypeScript
 - CSS
 
 ## Desenvolvedor 👨🏽‍💻
