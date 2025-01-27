@@ -2,7 +2,7 @@
   <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/280px-Rick_and_Morty.svg.png">
 </p>
 
-# Desafio AZShip 👨🏽‍💻✔
+# Desafio React 👨🏽‍💻✔
 
 <p>Criar uma aplicação Web em ReactJS para gerenciar todos os episódios de Rick
 and Morty.</p> 
