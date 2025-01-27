@@ -39,6 +39,3 @@ and Morty.</p>
 
 - <a target="_blank" href="https://www.linkedin.com/in/ramon-barreto-medrado/">Ramon Barreto</a>
 
-## Meu Contato 📲
-
-- Email: ramon_barreto_medrado@hotmail.com
