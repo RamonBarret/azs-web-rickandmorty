@@ -33,7 +33,9 @@ and Morty.</p>
 - [x] Na pasta <strong>Frontend</strong> digite o comando <strong>'npm run dev'</strong> para dar o start na aplicação (renderizar)
 
 ## Tecnologias 🛠
-- React JS
+- React
+- JavaScript
+- CSS
 
 ## Desenvolvedor 👨🏽‍💻
 
